@@ -1,0 +1,33 @@
+.component-button {
+    display: inline-flex;
+    width: 25%;
+    flex: 1 0 auto;
+}
+
+.component-button.wide {
+    width: 50%;
+}
+
+.component-button button {
+    background-color: #0b7197;
+    color: white;
+    border: 0;
+    font-size: 1.5rem;
+    margin: 4px 5px 2px 5px;
+    flex: 1 0 auto;
+    padding: 0;
+}
+
+.component-button:last-child button {
+    margin-right: 0;
+}
+
+.component-button.red button {
+    background-color: #ff6869;
+    color: white;
+}
+
+.component-button.green button {
+    background-color: #86ce84;
+    color: white;
+}

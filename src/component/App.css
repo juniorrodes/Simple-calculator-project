@@ -1,0 +1,14 @@
+.component-app{
+    background-color: #0097cc;
+    display: flex;
+    width: 25%;
+    position: relative;
+    left: 75%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.component-app > div{
+    font-size: 2rem;
+}

@@ -1,0 +1,11 @@
+.component-calculator {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.component-calculator > div{
+    font-size: 2rem;
+}
