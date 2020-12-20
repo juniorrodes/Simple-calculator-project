@@ -18,19 +18,23 @@ function updateNumber(firstNumber: string | null, setfirstNumber: Function, butt
   }
 };
 
+function errorMessage(message: string){
+  alert(message);
+}
+
 function request(equation: any, setTotal: Function, setFirstNumber: Function, setSecondNumber: Function,
   operation: string, setOperation?: Function){
   api.post(operation, equation)
     .then((response) => {
-      setTotal(response.data.total);
-      setSecondNumber(response.data.total);
+      setTotal(response.data.result);
+      setSecondNumber(response.data.result);
       setFirstNumber(null);
       if(setOperation){
         setOperation(null);
       }
     })
     .catch(() => {
-      alert('Ocorreu um erro na operação.');
+      errorMessage('Ocorreu um erro na operação.');
     });
 }
 
@@ -50,7 +54,7 @@ function calculate(equation: any, operation: string | null,
 export default function Calculator(){
 
   const [total, setTotal] = useState<null | string>(null);
-  const [firstNumber, setfirstNumber] = useState<null | string>(null);
+  const [firstNumber, setFirstNumber] = useState<null | string>(null);
   const [operation, setOperation] = useState<null | string>(null);
   const [secondNumber, setSecondNumber] = useState<null | string>(null);
 
@@ -59,10 +63,10 @@ export default function Calculator(){
       if((operation === null) && (firstNumber === null)){
         setTotal(null);
       }
-      updateNumber(firstNumber, setfirstNumber, buttonName);
+      updateNumber(firstNumber, setFirstNumber, buttonName);
     } else if(buttonName === 'AC'){
       setTotal(null);
-      setfirstNumber(null);
+      setFirstNumber(null);
       setOperation(null);
     } else{
       if(buttonName === '='){
@@ -70,7 +74,7 @@ export default function Calculator(){
           firstNumber: firstNumber,
           secondNumber: secondNumber
         };
-        calculate(equation, operation, setfirstNumber, setSecondNumber, setTotal, setOperation);
+        calculate(equation, operation, setFirstNumber, setSecondNumber, setTotal, setOperation);
       } else{
         if(operation && (firstNumber != null)){
           const equation = {
@@ -78,14 +82,14 @@ export default function Calculator(){
             secondNumber: secondNumber,
             operation: operation
           };
-          calculate(equation, operation, setfirstNumber, setSecondNumber, setTotal);
+          calculate(equation, operation, setFirstNumber, setSecondNumber, setTotal);
         }
         if(total && (firstNumber === null)){
           setSecondNumber(total);
           setTotal(null);
           setOperation(buttonName);
         } else if (operation == null){
-          setfirstNumber(null);
+          setFirstNumber(null);
           setSecondNumber(firstNumber);
           setOperation(buttonName);
         }

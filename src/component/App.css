@@ -4,11 +4,24 @@
     width: 25%;
     position: relative;
     left: 75%;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     flex-wrap: wrap;
     height: 100%;
 }
 
-.component-app > div{
+.component-app-calc-button > button{
+    background-color: #0097cc;
+    border: 0;
     font-size: 2rem;
+    color: #ecf7fb;
+    cursor: pointer;
+}
+
+.component-app-history-button > button{
+    background-color: #0097cc;
+    border: 0;
+    font-size: 2rem;
+    color: #ecf7fb;
+    cursor: pointer;
 }

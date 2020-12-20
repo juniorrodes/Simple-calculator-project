@@ -1,0 +1,13 @@
+.historic-component{
+    background-color: #0d7fa9;
+    display: flex;
+    border-radius: 15px;
+    overflow-y: auto;
+    height: 95%;
+    font-size: 4rem;
+    color: white;
+}
+
+.historic-component > ul{
+    list-style-type: none;
+}
